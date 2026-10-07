@@ -1,0 +1,6 @@
+flask
+bcrypt
+flask-limiter
+groq
+python-dotenv
+gunicorn
