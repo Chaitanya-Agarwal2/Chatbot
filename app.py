@@ -1,5 +1,8 @@
+import json
 import os
+import re
 from datetime import timedelta
+from urllib.parse import urlparse
 from functools import wraps
 
 import bcrypt
@@ -26,7 +29,7 @@ app.config.update(
     SESSION_COOKIE_SAMESITE="Lax",
     SESSION_COOKIE_SECURE=ON_RENDER,
     PERMANENT_SESSION_LIFETIME=timedelta(hours=1),
-    MAX_CONTENT_LENGTH=64 * 1024,
+    MAX_CONTENT_LENGTH=16 * 1024 * 1024,  # raised so long chats aren't rejected
 )
 
 if ON_RENDER:
@@ -41,7 +44,47 @@ MODEL = "openai/gpt-oss-120b"  # if you get "model not found", check console.gro
 SYSTEM_PROMPT = "You are a friendly, helpful assistant. Keep answers clear and concise."
 
 MAX_MESSAGES = 20
-MAX_CHARS = 2000
+
+
+
+def collect_sources(message, limit=None):
+    """Pull the pages the model looked at out of Groq's executed_tools data."""
+    try:
+        tools = message.model_dump().get("executed_tools") or []
+    except Exception:
+        return []
+
+    found = {}  # url -> title
+
+    def walk(obj):
+        if isinstance(obj, dict):
+            url = obj.get("url")
+            if isinstance(url, str) and url.startswith(("http://", "https://")):
+                found.setdefault(url, obj.get("title") or "")
+            for key, value in obj.items():
+                if key != "live_view_url":
+                    walk(value)
+        elif isinstance(obj, list):
+            for item in obj:
+                walk(item)
+
+    walk(tools)
+
+    # Fallback: scan the raw tool output text for links
+    if not found and tools:
+        for url in re.findall(r"https?://[^\s\"'<>)\]]+", json.dumps(tools)):
+            found.setdefault(url.rstrip(".,"), "")
+
+    if not found and tools:
+        print("executed_tools had no URLs. Raw data:", json.dumps(tools)[:1500])
+
+    sources = []
+    for url, title in found.items():
+        host = urlparse(url).netloc.removeprefix("www.")
+        sources.append({"url": url, "title": title.strip() or host})
+        if limit and len(sources) >= limit:
+            break
+    return sources
 
 
 # ---------- 5. Login protection ----------
@@ -49,7 +92,7 @@ def login_required(f):
     @wraps(f)
     def wrapper(*args, **kwargs):
         if not session.get("logged_in"):
-            if request.path == "/chat":
+            if request.path in ("/chat",):
                 return jsonify(error="Not logged in"), 401
             return redirect(url_for("login"))
         return f(*args, **kwargs)
@@ -83,6 +126,7 @@ def index():
     return render_template("chat.html")
 
 
+
 # ---------- 7. Chat endpoint ----------
 @app.route("/chat", methods=["POST"])
 @login_required
@@ -99,8 +143,8 @@ def chat():
         text = m.get("text")
         if role not in ("user", "model") or not isinstance(text, str):
             return jsonify(error="Bad request"), 400
-        if not text.strip() or len(text) > MAX_CHARS:
-            return jsonify(error="Message empty or too long"), 400
+        if not text.strip():
+            return jsonify(error="Message is empty"), 400
         messages.append({
             "role": "assistant" if role == "model" else "user",
             "content": text,
@@ -110,9 +154,20 @@ def chat():
         return jsonify(error="Bad request"), 400
 
     try:
-        response = client.chat.completions.create(model=MODEL, messages=messages)
-        reply = response.choices[0].message.content
-        return jsonify(reply=reply or "(no reply)")
+        raw = client.chat.completions.with_raw_response.create(
+            model=MODEL,
+            messages=messages,
+            tools=[{"type": "browser_search"}],  # Groq's built-in web search
+            tool_choice="auto",                  # the model searches only when it needs to
+            reasoning_effort="low",              # keeps searches fast and cheap
+        )
+        response = raw.parse()
+        reply = response.choices[0].message.content or ""
+        # Search results add citation markers like 【2†L6-L10】; strip them
+        reply = re.sub(r"【[^】]*】", "", reply).strip()
+
+        sources = collect_sources(response.choices[0].message)
+        return jsonify(reply=reply or "(no reply)", sources=sources)
     except Exception as e:
         print("Groq error:", e)
         return jsonify(error="The AI had a problem. Try again."), 502
