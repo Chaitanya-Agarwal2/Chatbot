@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chatbot</title>
+  <script src="{{ url_for('static', filename='theme.js') }}"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="topbar">
+    <h1>Chatbot</h1>
+    <div class="topbar-actions">
+      <button type="button" class="ghost" data-theme-toggle>Dark</button>
+      <form method="POST" action="{{ url_for('logout') }}">
+        <button type="submit" class="ghost danger">Log out</button>
+      </form>
+    </div>
+  </header>
+
+  <main id="messages" class="messages">
+    <div class="row bot">
+      <span class="avatar" aria-hidden="true"></span>
+      <div class="msg bot">Hi! I'm Chaitanya's chatbot. How can I help you today?</div>
+    </div>
+  </main>
+
+  <form id="chat-form" class="input-bar" autocomplete="off">
+    <div class="input-wrap">
+      <textarea id="user-input" rows="1" placeholder="Message" required autofocus></textarea>
+      <kbd class="kbd" aria-hidden="true">/</kbd>
+    </div>
+    <button type="submit" id="send-btn">Send</button>
+  </form>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
