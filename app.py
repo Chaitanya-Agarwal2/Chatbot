@@ -1,7 +1,7 @@
 import json
 import os
 import re
-from datetime import timedelta
+from datetime import datetime, timedelta, timezone
 from urllib.parse import urlparse
 from functools import wraps
 
@@ -41,7 +41,28 @@ limiter = Limiter(get_remote_address, app=app, storage_uri="memory://")
 # ---------- 4. Groq ----------
 client = Groq(api_key=GROQ_API_KEY)
 MODEL = "openai/gpt-oss-120b"  # if you get "model not found", check console.groq.com/docs/models
-SYSTEM_PROMPT = "You are a friendly, helpful assistant. Keep answers clear and concise."
+IST = timezone(timedelta(hours=5, minutes=30))  # India Standard Time (no daylight saving)
+
+
+def build_system_prompt():
+    """Rebuilt on every message so the model always knows the real date and time."""
+    now = datetime.now(IST)
+    stamp = now.strftime("%A, %d %B %Y, %I:%M %p")
+    return (
+        "You are a friendly, helpful assistant. Keep answers clear and concise.\n\n"
+        f"The current date and time is {stamp} IST (India Standard Time). "
+        "This is the true current date. Your training data is older than this, "
+        "so never assume the year from memory.\n\n"
+        "Rules for facts:\n"
+        "- For the date or time, use the value above. Do not search for it. "
+        "If asked for the time in another place, calculate it from the IST time above.\n"
+        "- For news, prices, scores, weather, who currently holds a job or title, "
+        "or anything recent, search the web before answering. Do not answer from memory.\n"
+        "- When you search, include the current year or the word 'today' in your query, "
+        "and prefer the newest results from reliable sources. Check the date of each result.\n"
+        "- If sources disagree, or you cannot find a reliable answer, say so honestly "
+        "instead of guessing."
+    )
 
 MAX_MESSAGES = 20
 
@@ -137,7 +158,7 @@ def chat():
         return jsonify(error="Bad request"), 400
 
     # Groq uses the roles "system", "user" and "assistant"
-    messages = [{"role": "system", "content": SYSTEM_PROMPT}]
+    messages = [{"role": "system", "content": build_system_prompt()}]
     for m in data["messages"][-MAX_MESSAGES:]:
         role = m.get("role")
         text = m.get("text")
@@ -159,7 +180,7 @@ def chat():
             messages=messages,
             tools=[{"type": "browser_search"}],  # Groq's built-in web search
             tool_choice="auto",                  # the model searches only when it needs to
-            reasoning_effort="low",              # keeps searches fast and cheap
+            reasoning_effort="medium",           # more careful searching and checking
         )
         response = raw.parse()
         reply = response.choices[0].message.content or ""
