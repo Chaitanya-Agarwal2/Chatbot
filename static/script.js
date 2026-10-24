@@ -125,3 +125,10 @@ form.addEventListener("submit", async (event) => {
     messagesDiv.scrollTop = messagesDiv.scrollHeight;
   }
 });
+
+// Double-click the logo to see the project's problem statement
+const aboutDialog = document.getElementById("about-dialog");
+document.querySelector(".brand .logo").addEventListener("dblclick", () => aboutDialog.showModal());
+aboutDialog.addEventListener("click", (e) => {
+  if (e.target === aboutDialog) aboutDialog.close();   // click outside the box closes it
+});

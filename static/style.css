@@ -122,6 +122,7 @@ input:focus, textarea:focus {
   background: var(--accent);
   color: var(--accent-ink);
 }
+.logo { user-select: none; }
 .logo svg { width: 70%; height: 70%; display: block; }
 
 /* ---------- Login page ---------- */
@@ -312,3 +313,19 @@ input:focus, textarea:focus {
   * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
   .typing i { opacity: 0.7; }
 }
+
+/* ---------- About popup (double-click the logo) ---------- */
+.about {
+  width: min(92%, 560px);
+  padding: 26px 28px 22px;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+}
+.about::backdrop { background: rgba(15, 22, 20, 0.55); }
+.about h2 { margin: 0 0 12px; font-family: var(--serif); font-size: 21px; font-weight: 600; }
+.about p { margin: 0 0 12px; font-size: 14.5px; line-height: 1.6; }
+.about .about-meta { padding-top: 12px; border-top: 1px solid var(--line); color: var(--muted); }
+.about form { margin: 16px 0 0; text-align: right; }
