@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sign in</title>
+  <title>Aravali Institute of Technology - Student Login</title>
   <script src="{{ url_for('static', filename='theme.js') }}"></script>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
@@ -13,17 +13,31 @@
   </div>
 
   <main class="login-box">
-    <h1>Sign in</h1>
-    <p>Enter the password to open the chat.</p>
+    <div class="login-head">
+      <span class="logo" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M1.5 20 9 6.5l4.2 7.2 2.6-4.2L22.5 20z"/><circle cx="18" cy="5.5" r="2" fill="#d9a441"/></svg></span>
+      <div>
+        <h1>Aravali Institute of Technology</h1>
+        <p>Student Portal</p>
+      </div>
+    </div>
 
-    {% if error %}
-      <p class="error">{{ error }}</p>
-    {% endif %}
+    <div class="login-body">
+      <h2>Sign in</h2>
+      <p class="sub">Use your roll number to open the student helpdesk.</p>
 
-    <form method="POST" action="{{ url_for('login') }}">
-      <input type="password" name="password" placeholder="Password" required autofocus>
-      <button type="submit">Sign in</button>
-    </form>
+      {% if error %}
+        <p class="error">{{ error }}</p>
+      {% endif %}
+
+      <form method="POST" action="{{ url_for('login') }}">
+        <label for="roll_no">Roll number</label>
+        <input id="roll_no" type="text" name="roll_no" placeholder="e.g. 25CS042" value="{{ demo_roll }}" autocomplete="username" required>
+        <label for="password">Password</label>
+        <input id="password" type="password" name="password" placeholder="Your password" autocomplete="current-password" required autofocus>
+        <button type="submit">Sign in</button>
+      </form>
+      <p class="login-hint">Demo account: <b>{{ demo_roll }}</b> &middot; all data is fictional.</p>
+    </div>
   </main>
 </body>
 </html>

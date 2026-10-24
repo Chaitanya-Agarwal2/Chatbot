@@ -1,0 +1,64 @@
+{
+ "roll_no": "25CS042",
+ "name": "Aarav Mehta",
+ "first_name": "Aarav",
+ "program": "B.Tech Computer Science & Engineering",
+ "year": 2,
+ "semester": 3,
+ "section": "CSE-B",
+ "email": "25cs042@students.aravali.edu.in",
+ "mentor": {
+  "name": "Prof. Neelam Bajaj",
+  "room": "B-305",
+  "email": "neelam.bajaj@aravali.edu.in",
+  "office_hours": "Mon-Wed 11 AM-12 PM"
+ },
+ "cgpa": 8.12,
+ "last_sgpa": 8.4,
+ "backlogs": 0,
+ "attendance_percent": {
+  "Data Structures": 72,
+  "Discrete Mathematics": 82,
+  "Digital Logic": 79,
+  "OOP with Java": 91,
+  "Probability & Statistics": 85
+ },
+ "mid_sem_marks_out_of_20": {
+  "Data Structures": 17,
+  "Discrete Mathematics": 14,
+  "Digital Logic": 15,
+  "OOP with Java": 18,
+  "Probability & Statistics": 16
+ },
+ "fees": {
+  "scholarship": "None",
+  "this_semester": "Paid in full on {-76} (Rs 107,000)",
+  "pending_dues": 0,
+  "next_installment": "Rs 107,000 due {+82}"
+ },
+ "hostel": {
+  "block": "Vindhya Hall",
+  "room": "214",
+  "type": "Double sharing (non-AC)",
+  "warden": "Mr. Rajiv Malhotra, +91 90000 10202",
+  "dues": 0
+ },
+ "bus": "Not using college bus",
+ "library": {
+  "fine_per_day_rs": 2,
+  "books_issued": [
+   {
+    "title": "Introduction to Algorithms",
+    "due_in_days": -4
+   },
+   {
+    "title": "Let Us C",
+    "due_in_days": 9
+   }
+  ]
+ },
+ "clubs": [
+  "CodeCraft (Coding Club)"
+ ],
+ "placement": "Not yet eligible (placement registration is for final years)"
+}

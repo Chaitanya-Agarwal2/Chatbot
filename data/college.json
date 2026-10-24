@@ -1,0 +1,115 @@
+{
+ "college": {
+  "name": "Aravali Institute of Technology",
+  "address": "Plot 14, Sector 62, Noida, UP 201309",
+  "phone": "0120-4567-100",
+  "email": "info@aravali.edu.in",
+  "director": "Prof. (Dr.) Suresh Kulkarni",
+  "portal": "the campus site (students just 'visit the campus site'; there is no web address to give out)",
+  "classes": "Mon-Fri 9:00 AM-4:30 PM, lunch 12:50-1:40 PM; Saturday labs/clubs only; Sunday off",
+  "offices_open": "Mon-Fri 9:30 AM-5:30 PM, Sat 9:30 AM-1 PM",
+  "metro": "Noida Sector 62 Metro, 1.2 km (e-rickshaw Rs 10-15)"
+ },
+ "programs_annual_tuition_inr": {
+  "B.Tech CSE": 185000,
+  "B.Tech CSE-AIML": 195000,
+  "B.Tech IT": 180000,
+  "B.Tech ECE": 170000,
+  "B.Tech ME": 150000,
+  "B.Tech CE": 140000,
+  "BCA": 85000,
+  "BBA": 90000,
+  "MBA": 160000,
+  "M.Tech CSE": 110000
+ },
+ "calendar": {
+  "this_semester_odd": "Classes {-83:d}-{+33}; mid-sem {-20:d}-{-13} (results out {-2}); end-sem {+43:d}-{+59}; results about {+82}",
+  "next_semester_even": "Classes {+78:d}-{+180}; mid-sem {+134:d}-{+141}; end-sem {+190:d}-{+207}",
+  "supplementary_exams": "{+253:d}-{+264}",
+  "holidays": "Diwali break {+12:d}-{+16} (hostel open, mess closed {+13:d}-{+15}); Guru Nanak Jayanti {+30}; winter break {+60:d}-{+70} (register with warden by {+51} to stay); Republic Day {+93}; Holi {+148:d}-{+149}",
+  "events": "HackAravali hackathon {+20:d}-{+21}; Freshers' 'Aagaaz' {+33}; Aravali Games sports meet {+23:d}-{+26} (no classes {+25:d}-{+26}); Aravali Utsav cultural fest {+116:d}-{+118}; TechNova tech fest {+152:d}-{+154}; Convocation {+230}",
+  "deadlines": "End-sem exam form {+26}; elective choice {+36}; even-sem fee {+82}"
+ },
+ "exams": {
+  "marks": "Each theory subject is 100: internal 40 (mid-sem 20, quizzes 10, assignments 5, attendance 5) + end-sem 60",
+  "pass": "Min 40/100 overall and min 18/60 in end-sem; labs min 50%",
+  "grades": "O 90-100 (10 pts), A+ 80-89 (9), A 70-79 (8), B+ 60-69 (7), B 50-59 (6), C 45-49 (5), P 40-44 (4), F below 40 (0). Percentage = CGPA x 9.5",
+  "hall_ticket": "Download from the portal 5 days before exams. Withheld if attendance is below 75% without condonation, or fee/library dues are pending. Lost hall ticket: Exam Cell A-102 issues a provisional slip same day",
+  "rules": "Reach 20 min early; no entry after 30 min; phones/smartwatches banned; unfair means = paper cancelled",
+  "backlogs": "Supplementary exam in July, Rs 1,500 per paper. Promoted to next year with up to 4 backlogs; more than 4 means repeating the year. Improvement attempts: up to 2 subjects a year, Rs 1,500 each",
+  "re_evaluation": "Apply on the portal within 7 days of result. Rs 1,000 per paper (photocopy of answer sheet Rs 500). Outcome in about 15 days, marks can go up or down, revised marks are final. End-sem theory only",
+  "missed_exam": "Missed end-sem for genuine reason (medical, bereavement): apply to Controller of Exams (Dr. Harish Chandra Joshi, A-101) within 3 days with proof; special exam costs Rs 1,500 per paper. Missed mid-sem: ask the subject teacher and HOD for a makeup test"
+ },
+ "attendance": "Minimum 75% in every subject. 65-74.99% can be condoned for medical, sports/NCC or approved college work: Rs 500 per subject, max 2 subjects per semester; apply with proof to HOD then Dean Academics before the end-sem form deadline (see calendar deadlines). Below 65%: detained in that subject (no condonation). Leave: apply on portal within 3 days of return; medical certificate needed for more than 3 days. Faculty update attendance every Friday",
+ "fees": {
+  "per_semester_btech_cse": 107000,
+  "annual_other_fees_btech": "29000 (development 15000, exam 6000, library/lab 8000)",
+  "installments": "Two a year: odd sem due {-71}, even sem due {+82}",
+  "late": "Rs 100/day after due date, capped at Rs 3,000. After 30 days, hall ticket is withheld. One part-payment allowed with Accounts Officer's approval",
+  "payment": "Portal (UPI/card/net banking), DD to 'Aravali Institute of Technology', NEFT, or Accounts window A-12 (cash up to Rs 20,000)",
+  "payment_failed": "Money deducted but fee not updated: raise a portal ticket with transaction ID; auto-resolved in 5-7 working days",
+  "refund_on_withdrawal": "Before classes 100% minus Rs 10,000; within 15 days 75% of tuition; 16-30 days 50%; after 30 days none. Caution deposit Rs 10,000 refunded in 45 days after no-dues",
+  "accounts_officer": "Mr. Deepak Arora, A-10, accounts@aravali.edu.in, 0120-4567-120"
+ },
+ "scholarships": "Merit (entry): top 10 ranks 100% tuition, ranks 11-50 get 50%, renew with CGPA 8.0+. Need-based: family income under Rs 4 lakh, up to 40%. Sports: 25%. Girl Child STEM grant (ECE/ME/CE girls): 10% first year. Apply on the portal with income and marksheets. College window closed {-55}; government scholarship verification open till {+36}. Scholarship Cell: A-14, scholarships@aravali.edu.in",
+ "hostel": {
+  "blocks": "Aravali Hall (boys, 1st yr), Vindhya Hall (boys, senior), Ganga Hall (girls UG), Yamuna Hall (girls PG)",
+  "rent_per_year": "Triple Rs 78,000; double Rs 98,000; double AC Rs 125,000; single Rs 135,000. Mess Rs 4,200/month. Deposit Rs 10,000 refundable",
+  "curfew": "Boys 10:30 PM, girls 9:30 PM. Late pass from warden extends to 11:30 PM (boys) / 10:30 PM (girls) with a department/club letter",
+  "visitors": "Sundays 10 AM-5 PM in the visitors' lounge; parents any working day 10 AM-5 PM with ID",
+  "outings": "Log in the leave register; overnight outside needs parent confirmation to warden",
+  "complaints": "Hostel portal ticket or floor attendant; fixed in 48 hours, urgent same day. Hostel office: Vindhya Hall ground floor, 0120-4567-140",
+  "prohibited": "Alcohol, smoking, hot plates, loud music after 10 PM"
+ },
+ "mess": {
+  "timings": "Breakfast 7:30-9 AM (weekends 8-9:30), lunch 12:30-2 PM, snacks 5-6 PM, dinner 7:30-9:30 PM",
+  "menu": {
+   "Monday": "B: poha, jalebi | L: dal tadka, aloo gobi, rice, roti | S: samosa | D: rajma, jeera rice, roti, gulab jamun",
+   "Tuesday": "B: aloo paratha, curd | L: chole, rice, roti, raita | S: bread pakora | D: paneer butter masala, dal fry, rice, roti",
+   "Wednesday": "B: idli sambar | L: kadhi pakora, rice, roti, bhindi | S: veg sandwich | D: chicken curry or paneer lababdar, rice, roti, kheer (non-veg day)",
+   "Thursday": "B: upma, banana | L: dal makhani, aloo matar, rice, roti | S: macaroni | D: veg biryani, raita, ice cream",
+   "Friday": "B: puri bhaji | L: sambar, mix veg, lemon rice, roti | S: kachori | D: egg curry or soya chaap, jeera rice, roti",
+   "Saturday": "B: chole kulche | L: dal, lauki, rice, roti | S: pav bhaji | D: kofta curry, pulao, roti, halwa",
+   "Sunday": "B: masala dosa | L: special thali | S: cake slice | D: chicken or paneer biryani, raita, dessert"
+  },
+  "extras": "Rebate Rs 150/day if away 5+ consecutive days (apply on hostel portal a day before). Jain/no-onion-garlic meals on request. Complaint register at mess entrance. Canteens: Central Cafeteria 8:30 AM-6 PM (thali Rs 90), Chai Point 8 AM-7 PM, Night Canteen 8 PM-12:30 AM"
+ },
+ "library": "Mon-Sat 8 AM-8 PM, Sun 10 AM-4 PM; reading room 24x7 for 2 weeks before end-sem. B.Tech/BCA/BBA borrow 4 books for 14 days; MBA/M.Tech 6 books for 21 days. Renew twice online. Fine Rs 2 per day per book; lost book = cost + Rs 200. Printing Rs 1/page. Group study rooms bookable on portal (2 hrs). Has IEEE, Springer, NPTEL access. Chief Librarian Mrs. Sunita Pillai, library@aravali.edu.in",
+ "transport": {
+  "routes": "R1 Noida Sec 18 (pickup 7:50 AM, Rs 14,000/yr); R2 Vaishali/Indirapuram (7:15 AM, Rs 16,000); R3 Greater Noida Pari Chowk (7:10 AM, Rs 15,000); R4 Laxmi Nagar/Akshardham (7:00 AM, Rs 20,000); R5 Sector 62 Metro shuttle every 15 min (Rs 6,000)",
+  "timings": "Buses reach campus by 8:45 AM; leave 4:45 and 5:45 PM (Friday extra at 3:30 PM)",
+  "pass": "Buy on portal under 'Transport', annual or per semester at half price. Route change mid-year Rs 300. Live bus tracking in the Aravali Campus app. Transport office near Main Gate: 0120-4567-160",
+  "parking": "Two-wheeler permit Rs 500/yr, helmet compulsory, speed limit 20 km/h"
+ },
+ "placements": "Last season: 87% placed, highest 42 LPA, average 7.8 LPA, median 6.5 LPA, 210 companies (TCS, Infosys, Amazon, Microsoft, Adobe, Deloitte, Razorpay, Zomato and more). CSE average 9.4 LPA. To sit for drives: CGPA 6.0+, no active backlog, 75% attendance, no dues, registered on placement portal (final-year batch registration closes {+11}). Mandatory 8-week internship after 6th semester. Mock interviews monthly. T&P Cell: Dr. Rakesh Bhatnagar, A-201, placements@aravali.edu.in",
+ "clubs": "CodeCraft (coding, hackathons), RoboX (robotics), Null Aravali (cyber security), AI Circle, Rangmanch (theatre), Sargam (music), Footloose (dance), Lens & Light (photography), Shabd (literary), E-Cell, NSS, Sports Council. Join via auditions/forms in August and January or by contacting the club lead; max 2 clubs. Duty leave counts as present if club lead submits list to HOD 3 days ahead. Dean Student Welfare: Dr. Vikram Sethi, A-205",
+ "it_services": {
+  "wifi": "Connect to 'Aravali-Secure', username is your roll number, set password first time on the campus site; 15 GB/day fair use. Visitors use 'Aravali-Guest' with OTP",
+  "lms": "Moodle LMS, log in with student email for notes and assignments",
+  "helpdesk": "Room B-G12, Mon-Fri 9-5, Sat 9-1, helpdesk@aravali.edu.in, 0120-4567-180; password reset also here"
+ },
+ "student_services": {
+  "where": "Student Services Centre (SSC), A Block ground floor; apply on portal, collect with ID. Mon-Fri 9:30-5:30, Sat 9:30-1. ssc@aravali.edu.in, 0120-4567-130",
+  "documents": "Bonafide Rs 0 first copy (Rs 50 extra), 2 working days; character certificate Rs 100, 3 days; transcript Rs 500, 5 days; fee certificate free, 2 days; duplicate ID Rs 300, 3 days (needs photo and FIR/affidavit if lost); provisional degree Rs 300; TC Rs 200; NOC for internship/visa free, 2 days (needs offer letter + HOD approval)",
+  "lost_id": "Apply for a duplicate ID on the portal, submit an affidavit or FIR copy and a photo at SSC, pay Rs 300, ready in 3 working days. Meanwhile ask security/SSC for a temporary gate pass. The library and canteen card are linked to the ID, so ask the library to block the old card",
+  "no_dues": "Digital clearance from Library, Hostel, Accounts, lab and Sports; takes 3-5 working days"
+ },
+ "safety_and_grievance": {
+  "ragging": "Zero tolerance. Anti-Ragging Squad 24x7: +91 90000 10300, antiragging@aravali.edu.in; National Anti-Ragging Helpline 1800-180-5522; anonymous 'Safe Campus' box outside A Block. Punishment: suspension, expulsion, FIR",
+  "harassment": "ICC (Chair Prof. Kavita Nair): icc@aravali.edu.in, confidential; Women's Help Desk A-G20, 24x7 line +91 90000 10350",
+  "security": "Control room 24x7: +91 90000 10400",
+  "grievance": "Portal 'Grievance' section or box in A Block; acknowledged in 2 working days, resolved in 7; escalates to Director",
+  "health": "Health Centre near A Block 8 AM-8 PM, Dr. Farah Khan; ambulance 24x7 +91 90000 10100. Free confidential counselling: Ms. Ishita Bose, A-G18, Mon-Sat 10-5",
+  "dress_and_phones": "Smart casual; ID card mandatory; phones silent in class/library/exam"
+ },
+ "offices": {
+  "Registrar": "A-002, 0120-4567-102",
+  "Exam Cell": "A-101/102, 0120-4567-135, exams@aravali.edu.in",
+  "Accounts": "A-12, 0120-4567-120",
+  "Dean Academics (Dr. Anita Deshmukh)": "A-210, Mon-Fri 3-5 PM",
+  "HOD CSE (Dr. Rohit Saxena)": "B-410",
+  "Hostel Office": "0120-4567-140",
+  "IT Helpdesk": "0120-4567-180"
+ },
+ "fallback": "If something is not in this data, say you don't have that information and point to the right office above. If unsure, send them to the Student Services Centre (0120-4567-130) or the main helpline (0120-4567-100)."
+}

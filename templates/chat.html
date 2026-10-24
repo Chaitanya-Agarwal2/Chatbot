@@ -3,31 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Chatbot</title>
+  <title>Aravali Institute of Technology - Student Helpdesk</title>
   <script src="{{ url_for('static', filename='theme.js') }}"></script>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
   <header class="topbar">
-    <h1>Chatbot</h1>
-    <div class="topbar-actions">
-      <button type="button" class="ghost" data-theme-toggle>Dark</button>
-      <form method="POST" action="{{ url_for('logout') }}">
-        <button type="submit" class="ghost danger">Log out</button>
-      </form>
+    <div class="topbar-inner">
+      <div class="brand">
+        <span class="logo" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M1.5 20 9 6.5l4.2 7.2 2.6-4.2L22.5 20z"/><circle cx="18" cy="5.5" r="2" fill="#d9a441"/></svg></span>
+        <div class="brand-text">
+          <h1>Aravali Institute of Technology</h1>
+          <p>Student Helpdesk</p>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <span class="whoami">{{ student.name }} <small>{{ student.roll_no }}</small></span>
+        <button type="button" class="ghost" data-theme-toggle>Dark</button>
+        <form method="POST" action="{{ url_for('logout') }}">
+          <button type="submit" class="ghost danger">Log out</button>
+        </form>
+      </div>
     </div>
   </header>
 
   <main id="messages" class="messages">
     <div class="row bot">
       <span class="avatar" aria-hidden="true"></span>
-      <div class="msg bot">Hi! I'm Chaitanya's chatbot. How can I help you today?</div>
+      <div class="msg bot">
+        <p><strong>{{ greeting }}, {{ student.first_name }}! &#128075;</strong></p>
+        <p>I'm the Aravali helpdesk assistant. I can see your attendance, fees, hostel and library details, and I know the college rules, so ask me anything.</p>
+      </div>
+    </div>
+
+    <div id="faq-chips" class="chips" aria-label="Suggested questions">
+      <p class="chips-label">Try asking</p>
+      {% for q in faqs %}
+        <button type="button" class="chip">{{ q }}</button>
+      {% endfor %}
     </div>
   </main>
 
   <form id="chat-form" class="input-bar" autocomplete="off">
     <div class="input-wrap">
-      <textarea id="user-input" rows="1" placeholder="Message" required autofocus></textarea>
+      <textarea id="user-input" rows="1" placeholder="Ask about attendance, fees, exams, hostel..." required autofocus></textarea>
       <kbd class="kbd" aria-hidden="true">/</kbd>
     </div>
     <button type="submit" id="send-btn">Send</button>
